@@ -59,9 +59,18 @@ var english_score = 0;
 var myfinish = 1;
 var all_number = 0;
 var my_time = 5;
+
+const btn = document.querySelector("#start_button");
+btn.addEventListener("click", () => {
+    var mymusic = new Audio(
+        "https://soundeffect-lab.info/sound/anime/mp3/electronic-countdown1.mp3"
+    );
+    mymusic.play();
+});
+
 function ready() {
-    var music = new Audio("https://yumetanweb.alc.co.jp/audio/2/A01_1_1.mp3");
-    music.play();
+    // var music = new Audio("https://yumetanweb.alc.co.jp/audio/2/A01_1_1.mp3");
+    // music.play();
     // var music = new Audio("https://yumetanweb.alc.co.jp/audio/2/A01_1_1.mp3");
     // music.play();
     readytime = 3;
