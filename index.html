@@ -4,9 +4,53 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+            crossorigin="anonymous"
+        />
         <link rel="stylesheet" href="style.css" />
+        <style>
+            /* footer{ text-align:right; font-size:12px; } */
+            #btn-play {
+                width: 100px;
+                height: 40px;
+                padding: 10px;
+                font-size: 18px;
+            }
+        </style>
     </head>
     <body>
+        <audio
+            id="bgm1"
+            src="https://yumetanweb.alc.co.jp/audio/2/A01_1_1.mp3"
+        ></audio>
+        <button id="btn-play" type="button"><i class="fas fa-play"></i></button>
+
+        <script>
+            const bgm1 = document.querySelector("#bgm1"); // <audio>
+            const btn = document.querySelector("#btn-play"); // <button>
+
+            btn.addEventListener("click", () => {
+                // pausedがtrue=>停止, false=>再生中
+                if (!bgm1.paused) {
+                    btn.innerHTML = '<i class="fas fa-play"></i>'; // 「再生ボタン」に切り替え
+                    bgm1.pause();
+                } else {
+                    btn.innerHTML = '<i class="fas fa-pause"></i>'; // 「一時停止ボタン」に切り替え
+                    bgm1.play();
+                }
+            });
+
+            /**
+             * [event] 再生終了時に実行
+             */
+            bgm1.addEventListener("ended", () => {
+                bgm1.currentTime = 0; // 再生位置を先頭に移動(こいつはなくても大丈夫です)
+                btn.innerHTML = '<i class="fas fa-play"></i>'; // 「再生ボタン」に変更
+            });
+        </script>
         <div class="wrap">
             <input
                 type="button"
