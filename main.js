@@ -60,6 +60,8 @@ var myfinish = 1;
 var all_number = 0;
 var my_time = 5;
 function ready() {
+    var music = new Audio("https://yumetanweb.alc.co.jp/audio/2/A01_1_1.mp3");
+    music.play();
     // var music = new Audio("https://yumetanweb.alc.co.jp/audio/2/A01_1_1.mp3");
     // music.play();
     readytime = 3;
